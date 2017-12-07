@@ -11,14 +11,28 @@ fi
 
 eval set -- "$OPTS"
 
+show_help()
+{
+	echo "Usage :"
+	echo " $0 [options]"
+	echo ""
+	echo "-h, --help	show help"
+	echo "-v, --version	show script version"
+}
+
+show_version()
+{
+	echo "Version : $VERSION"
+}
+
 while true; do
 	case "$1" in
 		-v|--version)
-			echo version : $VERSION
+			show_version
 			shift;;
 
 		-h|--help)
-			echo "usage : $0 \n -h --help: display this message\n -v --version : disay the version"
+			show_help
 			shift;;
 		--) shift;    break;;
 		*) echo " internal error"; exit 1;
